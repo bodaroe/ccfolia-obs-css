@@ -1,0 +1,12 @@
+/* CCFOLIA OBS CSS — 個人用調整版
+ * 参考・改変元: yudukiak/ccfoliaCSS
+ * https://github.com/yudukiak/ccfoliaCSS
+ * 元作者の制作物を参考に、表示切替を再構成しています。
+ */
+
+@import url("./base.css");
+
+/* キャラのみ */
+:root {
+    --obs-characters: visible;
+}

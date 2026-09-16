@@ -1,0 +1,72 @@
+/* CCFOLIA OBS CSS — 個人用調整版
+ * 参考・改変元: yudukiak/ccfoliaCSS
+ * https://github.com/yudukiak/ccfoliaCSS
+ * 元作者の制作物を参考に、表示切替を再構成しています。
+ */
+
+/* 各表示用CSSから読み込みます。単独では全要素を隠します。 */
+:root {
+    --obs-background: hidden;
+    --obs-foreground: hidden;
+    --obs-characters: hidden;
+    --obs-markers: hidden;
+    --obs-screens: hidden;
+}
+
+html,
+body {
+    background: transparent !important;
+}
+body {
+    margin: 0 auto;
+    overflow: hidden;
+}
+::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* 配置やアニメーションを保持し、見た目を隠す。処理自体は停止しません。 */
+body,
+body * {
+    visibility: hidden !important;
+}
+
+/* 元CSSの盤面幅調整を維持。style属性の書式変更時は見直す。 */
+div[tabindex="0"][style^="right:"] {
+    width: 100%;
+}
+
+/* 以下が更新時の主な修正箇所。CCFOLIA 1.36.4の提供HTMLに基づく。 */
+
+/* 背景：盤面の外側にある背景画像。自動生成クラスに依存。 */
+.sc-bKoKAZ {
+    visibility: var(--obs-background, hidden) !important;
+}
+
+/* 前景：移動・拡大縮小用コンテナ直下の画像。切替時の複数画像も対象。 */
+div[style^="transform: translate"] > div[style^="transform: scale"] > div:not([data-field-object]) > img {
+    visibility: var(--obs-foreground, hidden) !important;
+}
+
+/* 前景の枠線を除去 */
+div[style^="transform: translate"] > div[style^="transform: scale"] > div:not([data-field-object]) {
+    outline: none !important;
+}
+
+/* キャラ：自動生成クラスには依存しない。figure構造の変更時は見直す。 */
+[data-field-object] figure,
+[data-field-object] figure * {
+    visibility: var(--obs-characters, hidden) !important;
+}
+
+/* マーカーパネル：自動生成クラスに依存。 */
+.sc-ezjsFQ,
+.sc-ezjsFQ * {
+    visibility: var(--obs-markers, hidden) !important;
+}
+
+/* スクリーンパネル：自動生成クラスに依存。 */
+.sc-iuhWPH,
+.sc-iuhWPH * {
+    visibility: var(--obs-screens, hidden) !important;
+}
