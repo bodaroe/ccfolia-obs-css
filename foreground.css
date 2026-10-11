@@ -7,8 +7,9 @@
     --obs-foreground: visible;
 }
 
-/* 前景画像を強制的に拡大 */
-div[style^="transform: translate"] > div[style^="transform: scale"] > div:not([data-field-object]) > img {
+
+/* 前景の画像と、その表示領域を拡大 */
+div[style^="transform: translate"] > div[style^="transform: scale"] {
     transform: scale(3) !important;
     transform-origin: center center !important;
 }
