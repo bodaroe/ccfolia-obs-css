@@ -1,12 +1,14 @@
 /* CCFOLIA OBS CSS — 個人用調整版
- * 参考・改変元: yudukiak/ccfoliaCSS
- * https://github.com/yudukiak/ccfoliaCSS
- * 元作者の制作物を参考に、表示切替を再構成しています。
- */
 
 @import url("./base.css");
 
-/* 前景のみ */
+/* 前景のみ表示 */
 :root {
     --obs-foreground: visible;
+}
+
+/* 前景画像を強制的に拡大 */
+div[style^="transform: translate"] > div[style^="transform: scale"] > div:not([data-field-object]) > img {
+    transform: scale(3) !important;
+    transform-origin: center center !important;
 }
