@@ -13,3 +13,7 @@ div[style^="transform: translate"] > div[style^="transform: scale"] {
     transform: scale(3) !important;
     transform-origin: center center !important;
 }
+
+body {
+    background: red !important;
+}
